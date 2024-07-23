@@ -7,6 +7,7 @@ import { OZU } from "./data.js";
 const Form = () => {
     const [processor, setProcessor] = useState('Intel');
     const {tg} = useTelegram();
+    const [ozu, setOZU] = useState('1')
 
 
     const handleChange = (selected) => {
@@ -14,12 +15,13 @@ const Form = () => {
           optionSelected: selected
         });
     };
+
     const onSendData = useCallback(() => {
         const data = {
-            processor
+            processor, ozu
         }
         tg.sendData(JSON.stringify(data));
-    }, [processor])
+    }, [processor, ozu])
 
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
@@ -35,12 +37,12 @@ const Form = () => {
     }, [])
 
     useEffect(() => {
-        if(!processor) {
+        if(!processor || !ozu) {
             tg.MainButton.hide();
         } else {
             tg.MainButton.show();
         }
-    }, [processor])
+    }, [processor, ozu])
 
 
     const onChangeProcessor = (e) => {
@@ -64,8 +66,6 @@ const Form = () => {
 
       const [state, setState] = useState({ optionSelected: null });
       
-
-
     return (
         <div className={"form"}>
             <h3>Введите параметры ноутбука</h3>
