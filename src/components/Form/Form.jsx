@@ -7,7 +7,7 @@ import { OZU } from "./data.js";
 const Form = () => {
     const [processor, setProcessor] = useState('Intel');
     const {tg} = useTelegram();
-    const [ozu, setOZU] = useState('1')
+    const [ozu, setState] = useState({ optionSelected: null });
 
 
     const handleChange = (selected) => {
@@ -37,7 +37,7 @@ const Form = () => {
     }, [])
 
     useEffect(() => {
-        if(!processor || !ozu) {
+        if(!processor && !ozu) {
             tg.MainButton.hide();
         } else {
             tg.MainButton.show();
@@ -57,6 +57,7 @@ const Form = () => {
                 type="checkbox"
                 checked={props.isSelected}
                 onChange={() => null}
+                
               />{" "}
               <label>{props.label}</label>
             </components.Option>
@@ -64,7 +65,7 @@ const Form = () => {
         );
       };
 
-      const [state, setState] = useState({ optionSelected: null });
+      
       
     return (
         <div className={"form"}>
@@ -79,6 +80,7 @@ const Form = () => {
             <div>
                 <h3>Выбор оперативной памяти</h3>
                 <ReactSelect
+                    className='reactSelect'
                     options={OZU}
                     isMulti
                     closeMenuOnSelect={false}
@@ -87,12 +89,12 @@ const Form = () => {
                     Option
                     }}
                     onChange={handleChange}
-                    value={state.optionSelected}
+                    value={ozu.optionSelected}
                     // Hide dropdown list  when select any item
-                    // closeMenuOnSelect={true}
+                    closeMenuOnSelect={false}
 
                     //Selected Item Remove in dropdown list
-                    // hideSelectedOptions={true}
+                    hideSelectedOptions={true}
                 />
             </div>
         </div>
