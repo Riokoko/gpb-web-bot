@@ -3,19 +3,15 @@ import './Form.css';
 import {useTelegram} from "../../hooks/useTelegram";
 
 const Form = () => {
-    const [country, setCountry] = useState('');
-    const [street, setStreet] = useState('');
-    const [subject, setSubject] = useState('physical');
+    const [processor, setProcessor] = useState('physical');
     const {tg} = useTelegram();
 
     const onSendData = useCallback(() => {
         const data = {
-            country,
-            street,
-            subject
+            processor
         }
         tg.sendData(JSON.stringify(data));
-    }, [country, street, subject])
+    }, [processor])
 
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
@@ -31,44 +27,23 @@ const Form = () => {
     }, [])
 
     useEffect(() => {
-        if(!street || !country) {
+        if(!processor) {
             tg.MainButton.hide();
         } else {
             tg.MainButton.show();
         }
-    }, [country, street])
+    }, [processor])
 
-    const onChangeCountry = (e) => {
-        setCountry(e.target.value)
-    }
 
-    const onChangeStreet = (e) => {
-        setStreet(e.target.value)
-    }
-
-    const onChangeSubject = (e) => {
-        setSubject(e.target.value)
+    const onChangeProcessor = (e) => {
+        setProcessor(e.target.value)
     }
 
     return (
         <div className={"form"}>
-            <h3>Введите ваши данные</h3>
-            <input
-                className={'input'}
-                type="text"
-                placeholder={'Страна'}
-                value={country}
-                onChange={onChangeCountry}
-            />
-            <input
-                className={'input'}
-                type="text"
-                placeholder={'Улица'}
-                value={street}
-                onChange={onChangeStreet}
-            />
-            <h6> Процессор </h6>
-            <select value={subject} onChange={onChangeSubject} className={'select'}>
+            <h3>Введите параметры ноутбука</h3>
+            <h4 className='cellName'> Процессор</h4>
+            <select value={processor} onChange={onChangeProcessor} className={'select'}>
                 <option value={'physical'}>Intel</option>
                 <option value={'legal'}>AMD</option>
                 <option value={'legal'}>Intel+AMD</option>
