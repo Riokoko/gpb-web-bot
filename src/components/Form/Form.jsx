@@ -67,9 +67,11 @@ const Form = () => {
                 value={street}
                 onChange={onChangeStreet}
             />
+            <h6> Процессор </h6>
             <select value={subject} onChange={onChangeSubject} className={'select'}>
-                <option value={'physical'}>Физ. лицо</option>
-                <option value={'legal'}>Юр. лицо</option>
+                <option value={'physical'}>Intel</option>
+                <option value={'legal'}>AMD</option>
+                <option value={'legal'}>Intel+AMD</option>
             </select>
         </div>
     );
