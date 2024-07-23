@@ -1,8 +1,8 @@
-import React form 'react';
+import React from 'react';
 
 
-const Button = (or) => {
+const Button = (props) => {
     return (
-        <button/>
+        <button {...props} className={'button ' + props.className}/>
     );
 }
