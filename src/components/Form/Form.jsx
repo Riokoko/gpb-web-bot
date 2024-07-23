@@ -3,7 +3,7 @@ import './Form.css';
 import {useTelegram} from "../../hooks/useTelegram";
 
 const Form = () => {
-    const [processor, setProcessor] = useState('physical');
+    const [processor, setProcessor] = useState('Intel');
     const {tg} = useTelegram();
 
     const onSendData = useCallback(() => {
@@ -44,9 +44,9 @@ const Form = () => {
             <h3>Введите параметры ноутбука</h3>
             <h4 className='cellName'> Процессор</h4>
             <select value={processor} onChange={onChangeProcessor} className={'select'}>
-                <option value={'physical'}>Intel</option>
-                <option value={'legal'}>AMD</option>
-                <option value={'legal'}>Intel+AMD</option>
+                <option value={'Intel'}>Intel</option>
+                <option value={'AMD'}>AMD</option>
+                <option value={'Intel+AMD'}>Intel+AMD</option>
             </select>
         </div>
     );
