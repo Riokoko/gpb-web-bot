@@ -8,8 +8,8 @@ const Form = () => {
 
     const {tg} = useTelegram();
     const [processor, setProcessor] = useState('Intel');
-    const [ozu, setState] = useState({ optionSelected: 1});
-    const [hdd, setHDD] = useState({ optionSelected: 1});
+    const [ozu, setState] = useState(' ничего');
+    const [hdd, setHDD] = useState( ' ничего');
     const [comment, setComment] = useState('0');
 
     const [weightFrom, setWeightFrom] = useState('0');
