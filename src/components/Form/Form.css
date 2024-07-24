@@ -3,6 +3,7 @@
     flex-direction: column;
     width: 100%;
     padding: 20px;
+    background-color: #dae6f0;
 }
 
 .input {
@@ -37,5 +38,5 @@
     color: #476bf0;
     font-weight: 400;
     font-size: 35px;
-    
+
 }
