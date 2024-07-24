@@ -31,18 +31,18 @@
 }
 
 .logo {
-    width: 65px;
+    width: 45px;
 }
 
 .headerspan {
     color: #476bf0;
-    font-weight: 400;
+    font-weight: 320;
     font-size: 35px;
-    font-weight: bold;
 
 }
 
 .headerofrow{
     color: #102f94;
-    padding: 10px;
+    padding: 7px;
+    font-weight: 20px;
 }

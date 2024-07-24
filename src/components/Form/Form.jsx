@@ -84,12 +84,16 @@ const Form = () => {
                 <span className='headerspan'>ГАЗПРОМБАНК</span>
             </header>
             <h3 className="headerofrow">Введите параметры ноутбука</h3>
-            <h4 className='headerofrow'> Процессор</h4>
-            <select value={processor} onChange={onChangeProcessor} className={'select'}>
-                <option value={'Intel'}>Intel</option>
-                <option value={'AMD'}>AMD</option>
-                <option value={'Intel+AMD'}>Intel+AMD</option>
-            </select>
+
+            <div>
+                <h3 className='headerofrow'> Процессор</h3>
+                <select value={processor} onChange={onChangeProcessor} className={'select'}>
+                    <option value={'Intel'}>Intel</option>
+                    <option value={'AMD'}>AMD</option>
+                    <option value={'Intel+AMD'}>Intel+AMD</option>
+                </select>
+            </div>
+
 
             <div>
                 <h3 className='headerofrow'>Выбор оперативной памяти</h3>
@@ -104,11 +108,6 @@ const Form = () => {
                     }}
                     onChange={handleChange}
                     value={ozu.optionSelected}
-                    // Hide dropdown list  when select any item
-                    closeMenuOnSelect={false}
-
-                    //Selected Item Remove in dropdown list
-                    hideSelectedOptions={true}
                 />
             </div>
             
@@ -125,11 +124,6 @@ const Form = () => {
                     }}
                     onChange={handleHDDChange}
                     value={hdd.optionSelected}
-                    // Hide dropdown list  when select any item
-                    closeMenuOnSelect={false}
-
-                    //Selected Item Remove in dropdown list
-                    hideSelectedOptions={true}
                 />
             </div>
 
