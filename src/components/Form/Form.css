@@ -24,3 +24,18 @@
 .reactSelect {
     color: black;
 }
+
+.header {
+    background-color: #d3e3f0;
+}
+
+.logo {
+    width: 50px;
+}
+
+.headerspan {
+    color: #476bf0;
+    font-weight: 400;
+    font-size: 35px;
+    
+}

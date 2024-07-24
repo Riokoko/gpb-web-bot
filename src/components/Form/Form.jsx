@@ -77,7 +77,12 @@ const Form = () => {
       
       
     return (
+        
         <div className={"form"}>
+            <header class='header'>
+                <img src="https://cdn.gpb.ru/upload/files/iblock/e28/x1_1424-984-shapka-096508098.png" class="logo"/>
+                <span className='headerspan'>ГАЗПРОМБАНК</span>
+            </header>
             <h3>Введите параметры ноутбука</h3>
             <h4 className='cellName'> Процессор</h4>
             <select value={processor} onChange={onChangeProcessor} className={'select'}>
