@@ -12,6 +12,12 @@ const Form = () => {
     const [hdd, setHDD] = useState({ optionSelected: 1});
     const [comment, setComment] = useState('0');
 
+    const [weightFrom, setWeightFrom] = useState('0');
+    const [weightTo, setWeightTo] = useState('0');
+    const [BatteryFrom, setBatteryFrom] = useState('0');
+    const [BatteryTo, setBattryTo] = useState('0');
+
+
     const handleChange = (selected) => {
         setState({
           optionSelected: selected
@@ -28,10 +34,10 @@ const Form = () => {
 
     const onSendData = useCallback(() => {
         const data = {
-            processor, ozu, hdd, comment
+            processor, ozu, hdd, comment, weightFrom,weightTo,BatteryFrom,BatteryTo
         }
         tg.sendData(JSON.stringify(data));
-    }, [processor, ozu, hdd, comment])
+    }, [processor, ozu, hdd, comment, weightFrom,weightTo,BatteryFrom,BatteryTo])
 
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
@@ -59,9 +65,29 @@ const Form = () => {
         setProcessor(e.target.value)
     }
 
+    const onBatteryFrom = (e) => {
+        setBatteryFrom(e.target.value)
+    }
+
+    const onBatteryTo = (e) => {
+        setBattryTo(e.target.value)
+    }
+
+
+    const onWeightFrom = (e) => {
+        setWeightFrom(e.target.value)
+    }
+
+
+    const onWeightTo = (e) => {
+        setWeightTo(e.target.value)
+    }
+
+
     const onComments = (e) => {
         setComment(e.target.value)
     }
+
 
     const Option = (props) => {
         return (
@@ -137,7 +163,7 @@ const Form = () => {
                 <div class="search-wrapper">
                     <h6 className='headerofrow'>От</h6>
                     <form>
-                        <input type="number" name="focus" required class="search-box" placeholder="Только цифровое значение..." />
+                        <input type="number" name="focus" required class="search-box" onChange={onWeightFrom} placeholder="Только цифровое значение..." />
                         <button class="close-icon" type="reset"></button>   
                     </form>
                 </div>
@@ -145,7 +171,7 @@ const Form = () => {
                 <div class="search-wrapper">
                     <h6 className='headerofrow'>До</h6>
                     <form>
-                        <input type="number" name="focus" required class="search-box" placeholder="Только цифровое значение..." />
+                        <input type="number" name="focus" required class="search-box" onChange={onWeightTo} placeholder="Только цифровое значение..." />
                         <button class="close-icon" type="reset"></button>
                         
                     </form>
@@ -158,7 +184,7 @@ const Form = () => {
                 <div class="search-wrapper">
                     <h6 className='headerofrow'>От</h6>
                     <form>
-                        <input type="number" name="focus" required class="search-box" placeholder="Только цифровое значение..." />
+                        <input type="number" name="focus" required class="search-box"  onChange={onBatteryFrom} placeholder="Только цифровое значение..." />
                         <button class="close-icon" type="reset"></button>   
                     </form>
                 </div>
@@ -166,7 +192,7 @@ const Form = () => {
                 <div class="search-wrapper">
                     <h6 className='headerofrow'>До</h6>
                     <form>
-                        <input type="number" name="focus" required class="search-box" placeholder="Только цифровое значение..." />
+                        <input type="number" name="focus" required class="search-box" onChange={onBatteryTo} placeholder="Только цифровое значение..." />
                         <button class="close-icon" type="reset"></button>
                         
                     </form>
