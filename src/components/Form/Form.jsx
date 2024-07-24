@@ -83,8 +83,8 @@ const Form = () => {
                 <img src="https://cdn.gpb.ru/upload/files/iblock/e28/x1_1424-984-shapka-096508098.png" class="logo"/>
                 <span className='headerspan'>ГАЗПРОМБАНК</span>
             </header>
-            <h3>Введите параметры ноутбука</h3>
-            <h4 className='cellName'> Процессор</h4>
+            <h3 className="headerofrow">Введите параметры ноутбука</h3>
+            <h4 className='headerofrow'> Процессор</h4>
             <select value={processor} onChange={onChangeProcessor} className={'select'}>
                 <option value={'Intel'}>Intel</option>
                 <option value={'AMD'}>AMD</option>
@@ -92,7 +92,7 @@ const Form = () => {
             </select>
 
             <div>
-                <h3>Выбор оперативной памяти</h3>
+                <h3 className='headerofrow'>Выбор оперативной памяти</h3>
                 <ReactSelect
                     className='reactSelect'
                     options={OZU}
@@ -113,7 +113,7 @@ const Form = () => {
             </div>
             
             <div>
-                <h3>Выбор объема HDD</h3>
+                <h3 className='headerofrow'>Выбор объема HDD</h3>
                 <ReactSelect
                     className='reactSelect'
                     options={HDD}
@@ -134,7 +134,7 @@ const Form = () => {
             </div>
 
             <div>
-            <h3>Укажите вес</h3>
+            <h3 className='headerofrow'>Укажите вес</h3>
             <div class="_307sS _2HKcW _2k6P8" role="region" id="23674510" data-auto="accordion-content">
                 <div class="_1SfMJ l1f-a">
                     <div class="yXKAc _1H_kO" data-prefix="от">
@@ -152,7 +152,7 @@ const Form = () => {
                 
 
             <div>
-            <h3>Время автономной работы</h3>
+            <h3 className='headerofrow'>Время автономной работы</h3>
             <div class="_307sS _2HKcW _2k6P8" role="region" id="23674510" data-auto="accordion-content">
                 <div class="_1SfMJ l1f-a">
                     <div class="yXKAc _1H_kO" data-prefix="от">
@@ -167,7 +167,7 @@ const Form = () => {
                         </div>
                     </div>
             </div>
-            <h3>Отзывы от (шт.)</h3>
+            <h3 className='headerofrow'>Отзывы от (шт.)</h3>
         </div>
 
 
