@@ -133,7 +133,7 @@ const Form = () => {
                     options={OZU}
                     isMulti
                     closeMenuOnSelect={false}
-                    hideSelectedOptions={false}
+                    hideSelectedOptions={true}
                     components={{
                     Option
                     }}
@@ -149,7 +149,7 @@ const Form = () => {
                     options={HDD}
                     isMulti
                     closeMenuOnSelect={false}
-                    hideSelectedOptions={false}
+                    hideSelectedOptions={true}
                     components={{
                     Option
                     }}
