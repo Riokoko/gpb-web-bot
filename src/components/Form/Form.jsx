@@ -5,11 +5,12 @@ import { default as ReactSelect, components } from "react-select";
 import { HDD, OZU } from "./data.js";
 
 const Form = () => {
-    const [processor, setProcessor] = useState('Intel');
-    const {tg} = useTelegram();
-    const [ozu, setState] = useState({ optionSelected: 1});
 
+    const {tg} = useTelegram();
+    const [processor, setProcessor] = useState('Intel');
+    const [ozu, setState] = useState({ optionSelected: 1});
     const [hdd, setHDD] = useState({ optionSelected: 1});
+    const [comment, setComment] = useState('0');
 
     const handleChange = (selected) => {
         setState({
@@ -27,10 +28,10 @@ const Form = () => {
 
     const onSendData = useCallback(() => {
         const data = {
-            processor, ozu, hdd
+            processor, ozu, hdd, comment
         }
         tg.sendData(JSON.stringify(data));
-    }, [processor, ozu, hdd])
+    }, [processor, ozu, hdd, comment])
 
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
@@ -56,6 +57,10 @@ const Form = () => {
 
     const onChangeProcessor = (e) => {
         setProcessor(e.target.value)
+    }
+
+    const onComments = (e) => {
+        setComment(e.target.value)
     }
 
     const Option = (props) => {
@@ -129,39 +134,56 @@ const Form = () => {
 
             <div>
             <h3 className='headerofrow'>Укажите вес</h3>
-            <div class="_307sS _2HKcW _2k6P8" role="region" id="23674510" data-auto="accordion-content">
-                <div class="_1SfMJ l1f-a">
-                    <div class="yXKAc _1H_kO" data-prefix="от">
-                        <input type="text" class="_2xtC2" value="" placeholder="0.71" data-auto="range-filter-input-min"/>
-                        <button class="RjxBD _270C9" type="button" aria-label="Очистить"></button>
-                        </div><div class="yXKAc _1H_kO" data-prefix="до">
-                            <input type="text" class="_2xtC2" value="" placeholder="7" data-auto="range-filter-input-max"/>
-                                <button 
-                                    class="RjxBD _270C9" type="button" aria-label="Очистить">
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                <div class="search-wrapper">
+                    <h6 className='headerofrow'>От</h6>
+                    <form>
+                        <input type="number" name="focus" required class="search-box" placeholder="Только цифровое значение..." />
+                        <button class="close-icon" type="reset"></button>   
+                    </form>
+                </div>
+
+                <div class="search-wrapper">
+                    <h6 className='headerofrow'>До</h6>
+                    <form>
+                        <input type="number" name="focus" required class="search-box" placeholder="Только цифровое значение..." />
+                        <button class="close-icon" type="reset"></button>
+                        
+                    </form>
+                </div>
             </div>
                 
 
             <div>
             <h3 className='headerofrow'>Время автономной работы</h3>
-            <div class="_307sS _2HKcW _2k6P8" role="region" id="23674510" data-auto="accordion-content">
-                <div class="_1SfMJ l1f-a">
-                    <div class="yXKAc _1H_kO" data-prefix="от">
-                        <input type="text" class="_2xtC2" value="" placeholder="0.71" data-auto="range-filter-input-min"/>
-                        <button class="RjxBD _270C9" type="button" aria-label="Очистить"></button>
-                        </div><div class="yXKAc _1H_kO" data-prefix="до">
-                            <input type="text" class="_2xtC2" value="" placeholder="7" data-auto="range-filter-input-max"/>
-                                <button 
-                                    class="RjxBD _270C9" type="button" aria-label="Очистить">
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                <div class="search-wrapper">
+                    <h6 className='headerofrow'>От</h6>
+                    <form>
+                        <input type="number" name="focus" required class="search-box" placeholder="Только цифровое значение..." />
+                        <button class="close-icon" type="reset"></button>   
+                    </form>
+                </div>
+
+                <div class="search-wrapper">
+                    <h6 className='headerofrow'>До</h6>
+                    <form>
+                        <input type="number" name="focus" required class="search-box" placeholder="Только цифровое значение..." />
+                        <button class="close-icon" type="reset"></button>
+                        
+                    </form>
+                </div>
             </div>
+                
+
+            <div>
             <h3 className='headerofrow'>Отзывы от (шт.)</h3>
+                <div class="search-wrapper">
+                    <form>
+                        <input type="number" name="focus" required class="search-box" onChange={onComments} placeholder="Только цифровое значение..." />
+                        <button class="close-icon" type="reset"></button>   
+                    </form>
+                </div>
+
+            </div>
         </div>
 
 
