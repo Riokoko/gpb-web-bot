@@ -20,3 +20,17 @@ export const OZU = [
     { value: "128", label: "128" },
     { value: "Отсутствует", label: "Отсутствует" }
   ];
+
+  export const HDD = [
+    { value: "32", label: "32 GB" },
+    { value: "120", label: "120 GB" },
+    { value: "128", label: "128 GB" },
+    { value: "240", label: "240 GB" },
+    { value: "256", label: "256 GB" },
+    { value: "320", label: "320 GB" },
+    { value: "500", label: "500 GB" },
+    { value: "512", label: "512 GB" },
+    { value: "1", label: "1 TB" },
+    { value: "2", label: "2 TB" },
+    { value: "Отсутствует", label: "Отсутствует" }
+  ];
