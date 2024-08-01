@@ -119,9 +119,9 @@ const Form = () => {
             <div>
                 <h3 className='headerofrow'> Процессор</h3>
                 <select value={processor} onChange={onChangeProcessor} className={'select'}>
-                    <option value={'Intel'}>Intel</option>
-                    <option value={'AMD'}>AMD</option>
-                    <option value={'Intel+AMD'}>Intel+AMD</option>
+                    <option value={'Intel Core i7|Intel Core i5'}>Intel i7 и Intel i5</option>
+                    <option value={'AMD Ryzen 5|AMD Ryzen 7'}>AMD Ryzen 5 и AMD Ryzen 7</option>
+                    <option value={'Intel Core i7|Intel Core i5|AMD Ryzen 5|AMD Ryzen 7'}>Intel+AMD</option>
                 </select>
             </div>
 
